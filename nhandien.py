@@ -1,4 +1,6 @@
-import cv2
+import cv2, sys, numpy, os, PIL
+from cv2 import face
+from PIL import Image
 
 class Recognizer():
     def nhandien(self, img):
