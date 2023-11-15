@@ -8,13 +8,21 @@ from webcam import Webcam
 from nhandien import Recognizer
 app = Flask(__name__)
 
-webcam=Webcam()
-recog=Recognizer()
+
+
 @app.route('/')
 def index():
     return render_template('index.html')
 
+
+
+@app.route('/recognize')
+def recognize():
+    return render_template('recognize.html')
+
 def read_from_webcam():
+    webcam=Webcam()
+    recog=Recognizer()
     while True:
         image=next(webcam.get_frame())
         
