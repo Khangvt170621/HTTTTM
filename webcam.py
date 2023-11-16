@@ -21,4 +21,4 @@ class Webcam():
             img=cv2.putText(img, datetime.now().strftime("%H:%M:%S"),org,font,
                             fontScale, color, thickness, cv2.LINE_AA)
             
-            yield(cv2.imencode('.png', img)[1].tobytes())
+            yield img#(cv2.imencode('.png', img)[1].tobytes())

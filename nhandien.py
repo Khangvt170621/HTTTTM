@@ -14,7 +14,7 @@ class Recognizer():
 
         names=['Dang Bao Khang', 'Nguyen Huu Thien','Nguyen Duc Anh Tho',"4"]
         webcam=cv2.VideoCapture(0)
-
+        
         ret, img= webcam.read()
         # img=cv2.flip(img,-1)
         gray=cv2.cvtColor(img, cv2.COLOR_BGR2GRAY)
@@ -37,3 +37,4 @@ class Recognizer():
             cv2.putText(img, str(id),(x+5,y-5), font,1,(255,255,255),2)
             cv2.putText(img, str(confidence), (x+5,y+h-5),font,1,(255,255,0),1)
         return cv2.imencode('.png', img)[1].tobytes()
+    
