@@ -34,7 +34,7 @@ class Recognizer():
             else:
                 id="unknown"
                 confidence="{0}%".format(round(100-confidence))
-            cv2.putText(img, str(id),(x+5,y-5), font,1,(255,255,255),2)
-            cv2.putText(img, str(confidence), (x+5,y+h-5),font,1,(255,255,0),1)
+            cv2.putText(img, str(id),(x+5,y-5), font,1,(0,0,255),2)
+            cv2.putText(img, str(confidence), (x+5,y+h-5),font,1,(0,0,255),1)
         return cv2.imencode('.png', img)[1].tobytes()
     
