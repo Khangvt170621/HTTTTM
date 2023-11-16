@@ -12,7 +12,7 @@ class Recognizer():
 
         id=0
 
-        names=['Dang Bao Khang', 'Vo Pham Thuan Khang','thien',"Dang Bao Khang"]
+        names=['Dang Bao Khang', 'Nguyen Huu Thien','Nguyen Duc Anh Tho',"4"]
         webcam=cv2.VideoCapture(0)
 
         ret, img= webcam.read()
