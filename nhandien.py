@@ -1,6 +1,7 @@
 import cv2, sys, numpy, os, PIL
 from cv2 import face
 from PIL import Image
+from datetime import datetime
 
 class Recognizer():
     def nhandien(self, img):
@@ -12,7 +13,7 @@ class Recognizer():
 
         id=0
 
-        names=['Dang Bao Khang', 'Nguyen Huu Thien','Nguyen Duc Anh Tho',"4"]
+        names=['Dang Bao Khang', 'Nguyen Duc Anh Tho','Nguyen Huu Thien',"4"]
         webcam=cv2.VideoCapture(0)
         
         ret, img= webcam.read()
@@ -36,5 +37,14 @@ class Recognizer():
                 confidence="{0}%".format(round(100-confidence))
             cv2.putText(img, str(id),(x+5,y-5), font,1,(0,0,255),2)
             cv2.putText(img, str(confidence), (x+5,y+h-5),font,1,(0,0,255),1)
+
+        font=cv2.FONT_HERSHEY_SIMPLEX
+        org= (50,50)
+        fontScale=1
+        color=(0,255,0)
+        thickness=2
+
+        img=cv2.putText(img, datetime.now().strftime("%H:%M:%S"),org,font,
+                            fontScale, color, thickness, cv2.LINE_AA)    
         return cv2.imencode('.png', img)[1].tobytes()
     
